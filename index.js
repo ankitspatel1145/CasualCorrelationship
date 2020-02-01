@@ -20,37 +20,31 @@ const output = fetch("https://api.cryptonator.com/api/ticker/btc-usd")
 const renderChart = () => {
 
   var ctx = document.getElementById("myChart")
+  var ctx2 = document.getElementById("myChart2")
   
   
   var myChart = new Chart(ctx, {
     type: "line",
     data: {
       labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
-      datasets: [
-        {
-          label: "# of Votes",
-          data: [12, 19, 13, 5, 12, 3],
-          backgroundColor: [
-            "rgba(54, 162, 235, 0.2)",
-            "rgba(255, 99, 132, 0.2)",
-            "rgba(255, 206, 86, 0.2)",
-            "rgba(75, 192, 192, 0.2)",
-            "rgba(153, 102, 255, 0.2)",
-            "rgba(255, 159, 64, 0.2)"
-          ],
-          borderColor: [
-            "rgba(255, 206, 86, 1)",
-            "rgba(54, 162, 235, 1)",
-            "rgba(255, 99, 132, 1)",
-            "rgba(75, 192, 192, 1)",
-            "rgba(153, 102, 255, 1)",
-            "rgba(255, 159, 64, 1)"
-          ],
-          borderWidth: 2
-        }
-      ]
+      datasets: [{
+          label: 'Bar Dataset',
+          data: [10, 20, 14, 28,19,1,5,37],
+          // this dataset is drawn below
+          order: 1
+        }, {
+          label: 'Line Dataset',
+          data: [50, 23, 10, 50],
+          type: 'line',
+          // this dataset is drawn on top
+          order: 2
+        }]
     },
     options: {
+      title: {
+        display: true,
+        text: "hellooooo"
+      },
       scales: {
         yAxes: [
           {
@@ -62,5 +56,8 @@ const renderChart = () => {
       }
     }
   });
+
+
+ 
 }
 

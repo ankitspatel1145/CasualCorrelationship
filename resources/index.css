@@ -46,28 +46,49 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
-.graph {
-  width: 500px;
-}
+
+/* ======================================================== */
 nav {
-  height: 50px;
-  background-color: white;
-  border-radius: 50px;
-  opacity: 60%;
+    height: 50px;
+    background-color: white;
+    border-radius: 20px;
+    opacity: 60%;
+    width: 100%;
 }
 
 .main{
-  width: 90%;
-  z-index: 100;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    z-index: 100;
 }
 body {
-  display: flex;
-  justify-content: center;
-  background-color: lightblue;
+    display: flex;
+    justify-content: center;
+    background-color: lightblue;
+    
+}
+.myChart {
+    background-color: rgba(255, 255, 255, .86);
+    border-radius: 15px;
+    width: 1000px;
+}
+.graphs {
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 20px;
+    border-radius: 25px;
 }
 
+button {
+    width: 100px;
+}
 
-
+/* ======================================================== */
 
 @keyframes move_wave {
     0% {
