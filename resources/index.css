@@ -48,12 +48,20 @@ table {
 }
 
 /* ======================================================== */
-nav {
+.nav {
     height: 50px;
     background-color: white;
     border-radius: 20px;
     opacity: 60%;
+    margin-bottom: 20px;
     width: 100%;
+    margin-top: 5px;
+    color: black;
+    font-size: 30px;
+    text-align: center;
+}
+.mlogo img{
+    height: 100px
 }
 
 .main{

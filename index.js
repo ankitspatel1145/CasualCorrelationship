@@ -1,6 +1,6 @@
+// import * as functions from './functions'
 
-
-const output = fetch("https://api.cryptonator.com/api/ticker/btc-usd")
+const output = fetch("http://api.worldbank.org/v2/region?format=json")
   .then(response => {
     return response.json();
   })
@@ -60,4 +60,22 @@ const renderChart = () => {
 
  
 }
+
+//  random picker ==================================
+
+
+const apis = [
+  '#FFFFFF',
+  '#F06B4F',
+  '#F2AE52',
+  '#B0CD6D',
+  '#A33120'
+];
+
+function randomApi(apis) {
+  return apis[Math.floor(Math.random() * apis.length)];
+}
+
+
+
 
