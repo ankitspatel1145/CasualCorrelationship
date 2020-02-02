@@ -1,4 +1,3 @@
-// import * as functions from './functions'
 
 const output = fetch("http://api.worldbank.org/v2/region?format=json")
   .then(response => {
