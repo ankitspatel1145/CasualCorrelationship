@@ -12,6 +12,11 @@ function BuildChart(input1) {
 
 //  console.log(test1)
  let input2 = Array.from(input1, x => x);
+ console.log(Object.values(input1))
+  for (let i = 0; i < input1.length; i++) {
+    dataInput.push(input1[i]);
+  }
+  console.log(dataInput);
   var ctx = document.getElementById("myChart").getContext("2d");
   var myChart = new Chart(ctx, {
     type: "line",
@@ -20,7 +25,7 @@ function BuildChart(input1) {
       datasets: [
         {
           label: "test",
-          data: input2,
+          data: test1,
           backgroundColor: ["rgba(255, 99, 132, 0.2)"],
           borderColor: ["rgba(255, 99, 132, 1)"],
           borderWidth: 1
@@ -119,6 +124,7 @@ const exchangeAPI = () => {
       })
       .then(data => {
         excData.push(parseFloat(Object.values(data.rates)[0]));
+        console.log(excData);
         // console.log(Object.values(data.rates));
       })
       .catch(err => {
@@ -130,7 +136,7 @@ const exchangeAPI = () => {
   }
   let final = { type: money, data: excData };
   // console.log("in api function")
-  // console.log(excData)
+  console.log(excData)
   // console.log(test1)
   return excData
   // let final = {type:"testtesttest", data:""}
@@ -200,7 +206,7 @@ const populationAPI = () => {
     })
     .then(data => {
   
-      console.log(data.data);
+      // console.log(data.data);
     })
     .catch(err => {
       console.log("there was an error in the population API ");
