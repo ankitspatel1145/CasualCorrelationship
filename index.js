@@ -1,22 +1,24 @@
 window.onload = function() {
-  let pData = populationAPI();
-  let exchangeData = exchangeAPI()
-  var chart = BuildChart(exchangeData);
+  // let exchangeData = allExchange()
+  let data1 = buildData()
+  var chart = BuildChart(data1);
 }
 
-let test1 = [10,4,3,2,5]
+// console.log(test1)
+
+const buildData = () => {
+  let test1 = []
+  i = 0
+  while (i < 5){
+    exchangeAPI(i, test1)
+    i = i + 1
+  }
+  console.log("in buildData", test1)
+}
+
 
 function BuildChart(input1) {
-//  console.log("in render function")
-//  console.log(input1)
-
-//  console.log(test1)
- let input2 = Array.from(input1, x => x);
- console.log(Object.values(input1))
-  for (let i = 0; i < input1.length; i++) {
-    dataInput.push(input1[i]);
-  }
-  console.log(dataInput);
+  // console.log("build:", test1)
   var ctx = document.getElementById("myChart").getContext("2d");
   var myChart = new Chart(ctx, {
     type: "line",
@@ -25,7 +27,7 @@ function BuildChart(input1) {
       datasets: [
         {
           label: "test",
-          data: test1,
+          data: input1,
           backgroundColor: ["rgba(255, 99, 132, 0.2)"],
           borderColor: ["rgba(255, 99, 132, 1)"],
           borderWidth: 1
@@ -106,41 +108,38 @@ const regions = [
   "HRK"
 ]
 
-const exchangeAPI = () => {
+const exchangeAPI = (i, arr) => {
   let money = regions[Math.floor(Math.random() * regions.length)];
   let today = new Date();
   let date = today.getDate();
   let month = today.getMonth();
   let year = today.getFullYear();
-  let i = 0;
-  let excData = [];
-  while (i < 5) {
-    let newDate = year - i + "-" + month + "-" + date;
-    const exchangeAPI = fetch(
-      `https://api.exchangeratesapi.io/${newDate}?symbols=${money}`
-    )
-      .then(response => {
-        return response.json();
-      })
-      .then(data => {
-        excData.push(parseFloat(Object.values(data.rates)[0]));
-        console.log(excData);
-        // console.log(Object.values(data.rates));
-      })
-      .catch(err => {
-        console.log("there was an error in the exchange ");
-          location.reload();
-      });
-    //
-    i = i + 1;
-  }
-  let final = { type: money, data: excData };
-  // console.log("in api function")
-  console.log(excData)
-  // console.log(test1)
-  return excData
-  // let final = {type:"testtesttest", data:""}
-  // return final
+  // let i = 0;
+
+
+  let newDate = year - i + "-" + month + "-" + (date - 1);
+  let url = `https://api.exchangeratesapi.io/${newDate}?symbols=${money}`
+  fetch(url)
+    .then(response => {
+      if (!response.ok ) {
+        location.reload();
+      }
+      return response.json()})
+    .then(data => {
+      let val = Object.values(data.rates)
+      arr.push(val[0])
+      // return val
+    })
+    .then(data => {
+      console.log("in exchange api", arr.length) 
+      return arr
+    })
+    .catch(err => {
+    // location.reload();
+    console.log("error:", err);
+    });
+
+  // return test1
 };
 
 
@@ -205,7 +204,7 @@ const populationAPI = () => {
       return response.json();
     })
     .then(data => {
-  
+      return data
       // console.log(data.data);
     })
     .catch(err => {
