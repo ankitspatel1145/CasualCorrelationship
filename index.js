@@ -1,14 +1,21 @@
 window.onload = function() {
-  getAllData()
+  // getAllData()
+  exchangeAPI(1,[],"USD")
+  .then(res => console.log(res))
+
 }
 
 const getAllData = async()=> {
   let dataSet1 = await buildExchangeData()
-  // let dataSet2 = await buildExchangeData()
+  let dataSet3 = await buildPopData()
   dataSet2 = {data:[1,4,6,3,4],
               title: "testtitle"}
-  // console.log(stuff1)
+  console.log("set3:" ,dataSet3)
   BuildChart(dataSet1, dataSet2)
+}
+const buildPopData = async () => {
+  let data = await populationAPI()
+  console.log("build pop:", data)
 }
 
 const buildExchangeData = async () => {
@@ -39,16 +46,18 @@ function BuildChart(dataSet1, dataSet2) {
         {
           label: dataSet1.title,
           data: dataSet1.data,
-          backgroundColor: ["rgba(255, 99, 132, 0.2)"],
+          backgroundColor: "rgba(255, 99, 132, 0.2)",
           borderColor: ["rgba(255, 99, 132, 1)"],
-          borderWidth: 1
+          borderWidth: 1,
+          pointBackgroundColor: "rgba(255, 99, 132, 0.5)"
         },
         {
           label: dataSet2.title,
           data: dataSet2.data,
           backgroundColor: ["rgba(54, 162, 235, 0.2)"],
           borderColor: ["rgba(54, 162, 235, 1)"],
-          borderWidth: 1
+          borderWidth: 1,
+          pointBackgroundColor: "rgba(54, 162, 235, .5000000)"
         }
       ]
     },
@@ -193,19 +202,17 @@ const states = [
   'Wisconsin',
   'Wyoming'
 ]
-const populationAPI = () => {
+const populationAPI = async() => {
   let state = states[Math.floor(Math.random() * states.length)];
-  let popData = [];
-  const exchangeAPI = fetch(`https://datausa.io/api/data?drilldowns=State&measures=Population`)
-    .then(response => {
-      return response.json();
-    })
+  // console.log(state)
+  let url = `https://datausa.io/api/data?drilldowns=State&measures=Population`;
+  return fetch(url)
+    .then(response => response.json())
     .then(data => {
-      return data
-      // console.log(data.data);
+      console.log(data)
     })
     .catch(err => {
       console.log("there was an error in the population API ");
-      location.reload();
+      // location.reload();
     });
 }
