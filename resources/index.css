@@ -103,6 +103,18 @@ body {
     margin: 20px
 }
 
+.loading {
+    background-color: white;
+    height: 500px;
+    width: 1000px;
+    z-index: 109;
+    position: absolute;
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 a.button1{
     
     width: 300px;
@@ -148,8 +160,8 @@ a.button2{
     font-size: 20px;
 }
 a.button2:hover{
-color:#86377b;
-background-color:#FFFFFF;
+    color:#86377b;
+    background-color:#FFFFFF;
 }
 .graphChoice {
     display: flex;

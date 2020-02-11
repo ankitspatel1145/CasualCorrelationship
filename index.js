@@ -1,7 +1,10 @@
 window.onload = function() {
   getAllData()
 }
-
+const stopLoading = () => {
+  let loading = document.getElementById("loading")
+  loading.style.zIndex = '-10'
+}
 const changeChart = (chartToHide, chartToShow) => {
   var hide = document.getElementById(chartToHide);
   var show = document.getElementById(chartToShow);
@@ -40,7 +43,7 @@ const buildExchangeData = async () => {
 
 
 function buildLineChart(dataSet1, dataSet2) {
-
+  stopLoading()
   var ctx = document.getElementById("lineChart").getContext("2d");
   var myChart = new Chart(ctx, {
     type: 'line',

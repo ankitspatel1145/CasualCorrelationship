@@ -11,8 +11,6 @@
 
   </head>
   <body>
-    
-    
     <div class='main'>
       <div class='nav'> 
         
@@ -22,13 +20,13 @@
         <div>
           <p class="info">
             People often confuse correlation and causation when looking at data sets.
-
+            
             The purpose of this site is to show that you can correlate any 2 data sets, even if they have no relationship.
-          
+            
           </p>
           <!-- <p>Causation is when one variable directly influences another, 
             like average income vs highest level of education completed.
-
+            
             We know this is causation because higher paying jobs often require 
             more knowledge, education, and training.
           </p> -->
@@ -38,6 +36,11 @@
         <a  onClick="changeChart('barChart', 'lineChart')" class="button2">Line Graph</a>
         <a  onClick="changeChart('lineChart', 'barChart')" class="button2">Bar Graph</a>
       </div>
+
+      <div id="loading" class='loading'>
+        <img src="/assets/preloader.gif" alt="">
+      </div>
+
       <div id="graph" class="graphs">
         <canvas id="lineChart" class='lineChart'></canvas>
         <canvas id="barChart" class='barChart'></canvas>
