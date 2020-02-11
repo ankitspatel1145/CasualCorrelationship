@@ -8,8 +8,6 @@ const getAllData = async()=> {
   let dataSet1 = await buildExchangeData()
   let dataSet2 = await buildPopData()
 
-  // console.log("set1:" ,dataSet1)
-  // console.log("set2:" ,dataSet2)
   BuildChart(dataSet1, dataSet2)
 }
 const buildPopData = async () => {
@@ -37,8 +35,6 @@ const buildExchangeData = async () => {
 
 function BuildChart(dataSet1, dataSet2) {
 
-  console.log("chart1:", dataSet1)
-  console.log("chart2:", dataSet2)
   var ctx = document.getElementById("myChart").getContext("2d");
   var myChart = new Chart(ctx, {
     type: "line",
@@ -221,13 +217,11 @@ const populationAPI = async(arr, state) => {
   return fetch(url)
     .then(response => response.json())
     .then(res => {
-      // console.log(res.data[0].State)
       res.data.map( el => {
         if (el.State == state){
           arr.push(el.Population)
         }
       })
-      // console.log(arr)
     })
     .catch(err => {
       console.log("there was an error in the population API ");
