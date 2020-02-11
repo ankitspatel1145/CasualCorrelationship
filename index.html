@@ -35,12 +35,12 @@
         </div>
       </div>
       <div class="graphChoice">
-        <a href="/" class="button2">Line Graph</a>
-        <a href="/" class="button2">Bubble Graph</a>
-        <a href="/" class="button2">Bar Graph</a>
+        <a  onClick="changeChart('barChart', 'lineChart')" class="button2">Line Graph</a>
+        <a  onClick="changeChart('lineChart', 'barChart')" class="button2">Bar Graph</a>
       </div>
-      <div class="graphs">
-        <canvas id="myChart" class='myChart'></canvas>
+      <div id="graph" class="graphs">
+        <canvas id="lineChart" class='lineChart'></canvas>
+        <canvas id="barChart" class='barChart'></canvas>
       </div>
       
       <a href="https://ankitspatel1145.github.io/CasualCorrelationship/" class="button1">New Correlation</a>

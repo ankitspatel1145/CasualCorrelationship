@@ -57,7 +57,7 @@ table {
     opacity: 60%;
     margin-bottom: 20px;
     width: 100%;
-
+    margin-top: 10px;
     align-items: center;
 
 }
@@ -79,10 +79,19 @@ body {
     background-color: lightblue;
     
 }
-.myChart {
-    background-color: rgba(255, 255, 255, .86);
+.lineChart {
+    background-color: rgba(255, 255, 255, 1);
     border-radius: 15px;
     width: 1000px;
+    z-index: 1;
+}
+.barChart {
+    background-color: rgba(255, 255, 255, 1);
+    border-radius: 15px;
+    width: 1000px;
+    position: absolute;
+    z-index: 0;
+    display: none;
 }
 .graphs {
     background-color: white;

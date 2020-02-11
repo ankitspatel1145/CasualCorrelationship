@@ -1,14 +1,20 @@
 window.onload = function() {
   getAllData()
-  // buildPopData()
-
 }
 
+const changeChart = (chartToHide, chartToShow) => {
+  var hide = document.getElementById(chartToHide);
+  var show = document.getElementById(chartToShow);
+  hide.style.zIndex = '0';
+  show.style.zIndex = '1';
+
+}
 const getAllData = async()=> {
   let dataSet1 = await buildExchangeData()
   let dataSet2 = await buildPopData()
-
-  BuildChart(dataSet1, dataSet2)
+  
+  buildLineChart(dataSet1, dataSet2)
+  buildBarChart(dataSet1, dataSet2)
 }
 const buildPopData = async () => {
   let state = states[Math.floor(Math.random() * states.length)];
@@ -33,11 +39,11 @@ const buildExchangeData = async () => {
 }
 
 
-function BuildChart(dataSet1, dataSet2) {
+function buildLineChart(dataSet1, dataSet2) {
 
-  var ctx = document.getElementById("myChart").getContext("2d");
+  var ctx = document.getElementById("lineChart").getContext("2d");
   var myChart = new Chart(ctx, {
-    type: "line",
+    type: 'line',
     data: {
       labels: ["2016", "2017", "2018", "2019", "2020"],
       datasets: [
@@ -46,7 +52,7 @@ function BuildChart(dataSet1, dataSet2) {
           label: dataSet1.title,
           data: dataSet1.data,
           backgroundColor: "rgba(255, 99, 132, 0.2)",
-          borderColor: ["rgba(255, 99, 132, 1)"],
+          borderColor: "rgba(255, 99, 132, 1)",
           borderWidth: 1,
           pointBackgroundColor: "rgba(255, 99, 132, 0.5)"
         },
@@ -54,8 +60,60 @@ function BuildChart(dataSet1, dataSet2) {
           yAxisID: 'B',
           label:` ${dataSet2.state} population`,
           data: dataSet2.data,
-          backgroundColor: ["rgba(54, 162, 235, 0.2)"],
-          borderColor: ["rgba(54, 162, 235, 1)"],
+          backgroundColor: "rgba(54, 162, 235, 0.2)",
+          borderColor: "rgba(54, 162, 235, 1)",
+          borderWidth: 1,
+          pointBackgroundColor: "rgba(54, 162, 235, .5000000)"
+        }
+      ]
+    },
+    options: {
+      scales: {
+        yAxes: [{
+          id: 'A',
+          type: 'linear',
+          position: 'left', 
+          scaleLabel: {
+            display: true,
+            labelString: `1 ${dataSet1.title} `
+          }
+        }, {
+          id: 'B',
+          type: 'linear',
+          position: 'right',
+          scaleLabel: {
+            display: true,
+            labelString: `Population of ${dataSet2.state}`
+          }
+        }]
+      }
+    }
+  });
+  return myChart;
+}
+function buildBarChart(dataSet1, dataSet2) {
+
+  var ctx = document.getElementById("barChart").getContext("2d");
+  var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ["2016", "2017", "2018", "2019", "2020"],
+      datasets: [
+        {
+          yAxisID: 'A',
+          label: dataSet1.title,
+          data: dataSet1.data,
+          backgroundColor: "rgba(255, 99, 132, 0.2)",
+          borderColor: "rgba(255, 99, 132, 1)",
+          borderWidth: 1,
+          pointBackgroundColor: "rgba(255, 99, 132, 0.5)"
+        },
+        {
+          yAxisID: 'B',
+          label:` ${dataSet2.state} population`,
+          data: dataSet2.data,
+          backgroundColor: "rgba(54, 162, 235, 0.2)",
+          borderColor: "rgba(54, 162, 235, 1)",
           borderWidth: 1,
           pointBackgroundColor: "rgba(54, 162, 235, .5000000)"
         }
