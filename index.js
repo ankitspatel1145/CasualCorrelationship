@@ -36,6 +36,7 @@ const buildExchangeData = async () => {
 
 
 function BuildChart(dataSet1, dataSet2) {
+
   console.log("chart1:", dataSet1)
   console.log("chart2:", dataSet2)
   var ctx = document.getElementById("myChart").getContext("2d");
@@ -69,19 +70,20 @@ function BuildChart(dataSet1, dataSet2) {
         yAxes: [{
           id: 'A',
           type: 'linear',
-          position: 'left',
+          position: 'left', 
+          scaleLabel: {
+            display: true,
+            labelString: `1 ${dataSet1.title} `
+          }
         }, {
           id: 'B',
           type: 'linear',
-          position: 'right'
+          position: 'right',
+          scaleLabel: {
+            display: true,
+            labelString: `Population of ${dataSet2.state}`
+          }
         }]
-        // yAxes: [
-        //   {
-        //     ticks: {
-        //       beginAtZero: true
-        //     }
-        //   }
-        // ]
       }
     }
   });
