@@ -45,6 +45,7 @@ function BuildChart(dataSet1, dataSet2) {
       labels: ["2016", "2017", "2018", "2019", "2020"],
       datasets: [
         {
+          yAxisID: 'A',
           label: dataSet1.title,
           data: dataSet1.data,
           backgroundColor: "rgba(255, 99, 132, 0.2)",
@@ -53,6 +54,7 @@ function BuildChart(dataSet1, dataSet2) {
           pointBackgroundColor: "rgba(255, 99, 132, 0.5)"
         },
         {
+          yAxisID: 'B',
           label:` ${dataSet2.state} population`,
           data: dataSet2.data,
           backgroundColor: ["rgba(54, 162, 235, 0.2)"],
@@ -64,13 +66,22 @@ function BuildChart(dataSet1, dataSet2) {
     },
     options: {
       scales: {
-        yAxes: [
-          {
-            ticks: {
-              beginAtZero: true
-            }
-          }
-        ]
+        yAxes: [{
+          id: 'A',
+          type: 'linear',
+          position: 'left',
+        }, {
+          id: 'B',
+          type: 'linear',
+          position: 'right'
+        }]
+        // yAxes: [
+        //   {
+        //     ticks: {
+        //       beginAtZero: true
+        //     }
+        //   }
+        // ]
       }
     }
   });
