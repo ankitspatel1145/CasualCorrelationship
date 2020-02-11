@@ -1,21 +1,22 @@
 window.onload = function() {
-  // getAllData()
-  exchangeAPI(1,[],"USD")
-  .then(res => console.log(res))
+  getAllData()
+  // buildPopData()
 
 }
 
 const getAllData = async()=> {
   let dataSet1 = await buildExchangeData()
-  let dataSet3 = await buildPopData()
-  dataSet2 = {data:[1,4,6,3,4],
-              title: "testtitle"}
-  console.log("set3:" ,dataSet3)
+  let dataSet2 = await buildPopData()
+
+  // console.log("set1:" ,dataSet1)
+  // console.log("set2:" ,dataSet2)
   BuildChart(dataSet1, dataSet2)
 }
 const buildPopData = async () => {
-  let data = await populationAPI()
-  console.log("build pop:", data)
+  let state = states[Math.floor(Math.random() * states.length)];
+  let data = []
+  await populationAPI(data, state)
+  return {data, state}
 }
 
 const buildExchangeData = async () => {
@@ -35,8 +36,8 @@ const buildExchangeData = async () => {
 
 
 function BuildChart(dataSet1, dataSet2) {
-  console.log("chart:", dataSet1.data)
-  console.log("chart:", dataSet2.data)
+  console.log("chart1:", dataSet1)
+  console.log("chart2:", dataSet2)
   var ctx = document.getElementById("myChart").getContext("2d");
   var myChart = new Chart(ctx, {
     type: "line",
@@ -52,7 +53,7 @@ function BuildChart(dataSet1, dataSet2) {
           pointBackgroundColor: "rgba(255, 99, 132, 0.5)"
         },
         {
-          label: dataSet2.title,
+          label:` ${dataSet2.state} population`,
           data: dataSet2.data,
           backgroundColor: ["rgba(54, 162, 235, 0.2)"],
           borderColor: ["rgba(54, 162, 235, 1)"],
@@ -202,14 +203,18 @@ const states = [
   'Wisconsin',
   'Wyoming'
 ]
-const populationAPI = async() => {
-  let state = states[Math.floor(Math.random() * states.length)];
-  // console.log(state)
+const populationAPI = async(arr, state) => {
   let url = `https://datausa.io/api/data?drilldowns=State&measures=Population`;
   return fetch(url)
     .then(response => response.json())
-    .then(data => {
-      console.log(data)
+    .then(res => {
+      // console.log(res.data[0].State)
+      res.data.map( el => {
+        if (el.State == state){
+          arr.push(el.Population)
+        }
+      })
+      // console.log(arr)
     })
     .catch(err => {
       console.log("there was an error in the population API ");
