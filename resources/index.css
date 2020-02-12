@@ -327,7 +327,7 @@ button:hover {
     z-index: 100;
     box-shadow: green;
     margin-top: 35px;
-    /* display: none; */
+    display: none;
     border: 1px solid #bd37ab ;
 }
 .close {
