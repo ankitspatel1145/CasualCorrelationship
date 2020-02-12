@@ -59,9 +59,11 @@ table {
     width: 100%;
     margin-top: 10px;
     align-items: center;
+    min-width: 1000px;
 
 }
 .mlogo img{
+    margin-left: 30px;
     height: 100px
 }
 
@@ -107,7 +109,7 @@ body {
     background-color: white;
     height: 500px;
     width: 1000px;
-    z-index: 109;
+    z-index: 2;
     position: absolute;
     border-radius: 25px;
     display: flex;
@@ -204,9 +206,39 @@ a.button2:hover{
 }
 
 .info{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
     color: #86377b;
+    /* background-color: red; */
     font-size: 18px;
+    height: 80%;
+    width: 50%;
     font-family: Arial, Helvetica, sans-serif;
+}
+
+.spacer{
+    width: 40px;
+}
+button {
+    height: 80px;
+    width: 200px;
+    font-size: 1.25em;
+    font-weight: bold;
+    background-color: #cc1eb5;
+    border: none;
+    padding: .5em 1em;
+    color: rgb(255, 255, 255);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background .4s ease, color .4s ease;
+    border: 2px solid #cc1eb5;
+    
+}
+button:hover {
+    color: #cc1eb5;
+    background-color: transparent;
 }
 /* ======================================================== */
 
@@ -278,4 +310,47 @@ a.button2:hover{
 }
 .waveAnimation .waveBottom {
     animation: move_wave 15s linear infinite;
+}
+
+/* ++++++++++++++++++++++modal */
+
+.modalbtn{
+    margin-right: 20px;
+}
+.modal {
+    width: 1300px;
+    height: 750px;
+    background-color: white;
+    opacity: 50%;
+    position: absolute;
+    border-radius: 10px;
+    /* z-index: -100; */
+    box-shadow: green;
+    margin-top: 35px;
+    display: none;
+}
+.close {
+  position: absolute;
+  right: 32px;
+  top: 32px;
+  width: 32px;
+  height: 32px;
+  opacity: 0.3;
+}
+.close:hover {
+  opacity: 1;
+}
+.close:before, .close:after {
+  position: absolute;
+  left: 15px;
+  content: ' ';
+  height: 33px;
+  width: 2px;
+  background-color: #333;
+}
+.close:before {
+  transform: rotate(45deg);
+}
+.close:after {
+  transform: rotate(-45deg);
 }

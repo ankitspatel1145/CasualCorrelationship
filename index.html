@@ -7,24 +7,27 @@
     <link rel="stylesheet" href="./resources/index.css">
     <title>Correlations</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script src="https://unpkg.com/micromodal/dist/micromodal.min.js"></script>
     <script src="./index.js"></script>
-
   </head>
   <body>
     <div class='main'>
       <div class='nav'> 
         
         <div class='mlogo'>
-          <img src="https://i.imgur.com/FM0Vqlp.png" alt="logo">
+          <img src="assets/newlogo.png" alt="logo">
         </div>
-        <div>
-          <a onClick="changeChart('lineChart', 'barChart')" class="button3">Bar Graph</a>
-          <!-- <p class="info">
-            People often confuse correlation and causation when looking at data sets.
+        <div class="info">
+          <p >
+            Click "New Correlations" to generate new correlation graphs with 
+            random data sets. <br /> Toggle
+            between line graphs and bar graphs. 
+          </p>
+          
+          <!-- People often confuse correlation and causation when looking at data sets.
             
             The purpose of this site is to show that you can correlate any 2 data sets, even if they have no relationship.
-            
-          </p> -->
+          -->
           <!-- <p>Causation is when one variable directly influences another, 
             like average income vs highest level of education completed.
             
@@ -32,15 +35,20 @@
             more knowledge, education, and training.
           </p> -->
         </div>
+        <div class='modalbtn'>
+
+          <button onClick="openModal()" class="js-open btn-open is-active">More Info</button>
+        </div>
       </div>
+
       <div class="graphChoice">
         <a  onClick="changeChart('barChart', 'lineChart')" class="button2">Line Graph</a>
+        <span class="spacer"></span>
         <a  onClick="changeChart('lineChart', 'barChart')" class="button2">Bar Graph</a>
       </div>
 
       <div id="loading" class='loading'>
         <img src="assets/preloader.gif" alt="loading">
-        <!-- <img src="https://i.imgur.com/wzPgWL1.gif" alt="loading"> -->
       </div>
 
       <div id="graph" class="graphs">
@@ -50,17 +58,26 @@
       
       <a onClick="window.location.reload()" class="button1">New Correlation</a>
       
-            <div class='links'>
-      
-              <a class=social href="https://github.com/ankitspatel1145/">
-                <img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/github.svg" alt="github" style="width:50px;height:50px;">
-              </a>
-              <a class=social href="https://www.linkedin.com/in/ankit-patel-aa5216133/">
-                <img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/linkedin.svg" alt="linkedin" style="width:50px;height:50px;">
-              </a>
-      
-            
-            </div>
+      <div class='links'>
+        <a class=social href="https://github.com/ankitspatel1145/">
+          <img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/github.svg" alt="github" style="width:50px;height:50px;">
+        </a>
+        <a class=social href="https://www.linkedin.com/in/ankit-patel-aa5216133/">
+          <img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/linkedin.svg" alt="linkedin" style="width:50px;height:50px;">
+        </a>
+      </div>
+
+
+
+
+      <div id='modal' class="modal">
+        <div class="top">
+          <a href="#" onClick="closeModal()" class="close"></a>
+        </div>
+
+      </div>
+
+
     </div>
     
     <div class="waveWrapper waveAnimation">

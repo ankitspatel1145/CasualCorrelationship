@@ -289,3 +289,13 @@ const populationAPI = async(arr, state) => {
       // location.reload();
     });
 }
+
+// ======================modal
+const openModal = () => {
+  let button = document.getElementById("modal")
+  button.style.display = "block"
+}
+const closeModal = () => {
+  let button = document.getElementById("modal")
+  button.style.display = "none"
+}
