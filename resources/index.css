@@ -318,16 +318,17 @@ button:hover {
     margin-right: 20px;
 }
 .modal {
-    width: 1300px;
+    width: 60%;
     height: 750px;
     background-color: white;
-    opacity: 50%;
+    /* opacity: 50%; */
     position: absolute;
     border-radius: 10px;
-    /* z-index: -100; */
+    z-index: 100;
     box-shadow: green;
     margin-top: 35px;
-    display: none;
+    /* display: none; */
+    border: 1px solid #bd37ab ;
 }
 .close {
   position: absolute;
@@ -339,6 +340,8 @@ button:hover {
 }
 .close:hover {
   opacity: 1;
+  background-color: #bd37ab;
+  border-radius: 10px;
 }
 .close:before, .close:after {
   position: absolute;
@@ -346,11 +349,23 @@ button:hover {
   content: ' ';
   height: 33px;
   width: 2px;
-  background-color: #333;
+  background-color: black;
 }
 .close:before {
   transform: rotate(45deg);
 }
 .close:after {
   transform: rotate(-45deg);
+}
+.moreinfo {
+    font-size: 24px;
+    color: #5010a5;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 60px;
+}
+.moreinfo p {
+    margin: 10px;
 }
