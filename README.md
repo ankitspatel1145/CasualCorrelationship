@@ -1,37 +1,34 @@
-## Welcome to GitHub Pages
+# Welcome to the CasualCorrelationship Wiki!
+## Background
+People often confuse correlation and causation when looking at data sets.
 
-You can use the [editor on GitHub](https://github.com/ankitspatel1145/CasualCorrelationship/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+* Causation is when one variable directly influences another, like average income vs highest level of education completed. We know this is causation because higher paying jobs often require more knowledge, education, and training.
+* Correlation is when 2 datasets look like they are directly related, but are not. An example would be ice cream sales vs sunglasses sales. The two numbers are correlated because one does not influence the other. We can assume that there is another variable that causes both of them, like temperature.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 
-### Markdown
+The purpose of this site is to show people that you can correlate any 2 data sets, even if they have no relationship. The app will generate a graph/chart based on 2 random datasets. The user can select different categories for each dataset and style of chart/graph
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+## MVP
+* User will be able to click a button to randomly generate a relationship graph
+* User can choose the style in which the data is displayed
+* User can interact with the data on the graph to see data point
 
-```markdown
-Syntax highlighted code block
+## Design
+The site will be a simple 1 page layout with a nav bar on top that controls the data shown. It will have a random button to generate a random set of graphs. Below that will be the chart that will be created based on the input. There will be different styles of charts available.
 
-# Header 1
-## Header 2
-### Header 3
+Main show page
+show page
 
-- Bulleted
-- List
+Technology
+Javascript for frontend Chart.js for graphs Anime.js to animate webpage
 
-1. Numbered
-2. List
+Timeline
+Day 1: make proposal, research apis, start project on github
 
-**Bold** and _Italic_ and `Code` text
+Day 2: Set up apis, and test. Learn to make api calls without ajax
 
-[Link](url) and ![Image](src)
-```
+Day 3: Learn to use chart.js for making visuals.
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+Day 4: make landing page and show page.
 
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/ankitspatel1145/CasualCorrelationship/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+Day 5: Set up logic for randomization.
