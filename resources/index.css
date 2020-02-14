@@ -20,7 +20,8 @@ time, mark, audio, video {
 	padding: 0;
 	border: 0;
 	font-size: 100%;
-	font: inherit;
+	    font-family:'Roboto',sans-serif;
+
 	vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
@@ -130,7 +131,6 @@ a.button1{
     border-radius:0.12em;
     box-sizing: border-box;
     text-decoration:none;
-    font-family:'Roboto',sans-serif;
     font-weight:300;
     color:#FFFFFF;
     text-align:center;
@@ -328,7 +328,10 @@ button:hover {
     box-shadow: green;
     margin-top: 35px;
     display: none;
-    border: 1px solid #bd37ab ;
+    /* border: 1px solid #bd37ab ; */
+    /* box-shadow:10px, 10px, 10px, 10px rgb(0, 0, 0); */
+    min-width: 500px;
+    max-width: 1000px;
 }
 .close {
   position: absolute;
@@ -365,7 +368,14 @@ button:hover {
     justify-content: center;
     align-items: center;
     padding: 60px;
+    text-align: center;
 }
 .moreinfo p {
     margin: 10px;
+}
+.ankit {
+    margin-top: 40px;
+}
+.links {
+    display: inline-flex;
 }
