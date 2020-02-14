@@ -19,6 +19,7 @@ The purpose of this site is to show people that you can correlate any 2 data set
 The site will be a simple 1 page layout with a nav bar on top that controls the data shown. It will have a random button to generate a random set of graphs. Below that will be the chart that will be created based on the input. There will be different styles of charts available.
 
 ## Main show page
+![alt text](https://github.com/ankitspatel1145/CasualCorrelationship/blob/master/assets/casual.png "Main page")
 
 
 
