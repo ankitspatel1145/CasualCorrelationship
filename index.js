@@ -1,9 +1,11 @@
 window.onload = function() {
   
-  getAllData()
   openModal()
+  getAllData()
 
 }
+
+
 const startLoading = () => {
   let loading = document.getElementById("loading")
   loading.style.zIndex = '10'
@@ -301,7 +303,9 @@ const populationAPI = async(arr, state) => {
 // ======================modal
 const openModal = () => {
   let button = document.getElementById("modal")
+  let shade = document.getElementById("shade")
   button.style.display = "block"
+  shade.style.display = "block"
 }
 const closeModal = () => {
   let button = document.getElementById("modal")
