@@ -17,7 +17,7 @@ const stopLoading = () => {
 const changeChart = (chartToHide, chartToShow) => {
   var hide = document.getElementById(chartToHide);
   var show = document.getElementById(chartToShow);
-  hide.style.zIndex = '0';
+  hide.style.zIndex = '-122210';
   show.style.zIndex = '1';
 
 }
@@ -55,6 +55,7 @@ const buildExchangeData = async () => {
 function buildLineChart(dataSet1, dataSet2) {
   stopLoading()
   var ctx = document.getElementById("lineChart").getContext("2d");
+
   var myChart = new Chart(ctx, {
     type: 'line',
     data: {
@@ -104,6 +105,7 @@ function buildLineChart(dataSet1, dataSet2) {
   });
   return myChart;
 }
+
 function buildBarChart(dataSet1, dataSet2) {
 
   var ctx = document.getElementById("barChart").getContext("2d");
@@ -225,6 +227,7 @@ const exchangeAPI = async(i, output, money) => {
     })
     .catch(err => {
     location.reload();
+      // output.push(0)
     console.log("error:", err);
     });
 };
@@ -312,4 +315,25 @@ const closeModal = () => {
   let shade = document.getElementById("shade")
   button.style.display = "none"
   shade.style.display = "none"
+}
+
+const makeCanvas = () => {
+
+  graphHolder = document.getElementById('graph')
+  var bar = document.createElement("canvas");
+  bar.id = "barChart"
+  var line = document.createElement("canvas");
+  line.id = "lineChart"
+  
+  graphHolder.appendChild(line)
+  graphHolder.appendChild(bar)
+}
+const clearCanvas = () => {
+  graphHolder = document.getElementById('graph')
+  bar = document.getElementById('barChart')
+  line = document.getElementById('lineChart')
+  graphHolder.removeChild(line)
+  graphHolder.removeChild(bar)
+  makeCanvas()
+  getAllData()
 }

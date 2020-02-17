@@ -95,13 +95,13 @@ body {
     background-color: lightblue;
     
 }
-.lineChart {
+#lineChart {
     background-color: rgba(255, 255, 255, 1);
     border-radius: 15px;
     width: 1000px;
     z-index: 1;
 }
-.barChart {
+#barChart {
     background-color: rgba(255, 255, 255, 1);
     border-radius: 15px;
     width: 1000px;
