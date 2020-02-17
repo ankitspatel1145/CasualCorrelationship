@@ -8,16 +8,16 @@ window.onload = function() {
 
 const startLoading = () => {
   let loading = document.getElementById("loading")
-  loading.style.zIndex = '10'
+  loading.style.zIndex = '2'
 }
 const stopLoading = () => {
   let loading = document.getElementById("loading")
-  loading.style.zIndex = '-10'
+  loading.style.zIndex = '-1'
 }
 const changeChart = (chartToHide, chartToShow) => {
   var hide = document.getElementById(chartToHide);
   var show = document.getElementById(chartToShow);
-  hide.style.zIndex = '-122210';
+  hide.style.zIndex = '-1';
   show.style.zIndex = '1';
 
 }
@@ -25,7 +25,6 @@ const getAllData = async()=> {
   startLoading();
   let dataSet1 = await buildExchangeData()
   let dataSet2 = await buildPopData()
-  
   while ((dataSet1["data"][0]) == null){
     dataSet1 = await buildExchangeData()
   }
@@ -323,16 +322,15 @@ const closeModal = () => {
 }
 
 const makeCanvas = () => {
-
   graphHolder = document.getElementById('graph')
   var bar = document.createElement("canvas");
   bar.id = "barChart"
   var line = document.createElement("canvas");
   line.id = "lineChart"
-  
   graphHolder.appendChild(line)
   graphHolder.appendChild(bar)
 }
+
 const clearCanvas = () => {
   graphHolder = document.getElementById('graph')
   bar = document.getElementById('barChart')
