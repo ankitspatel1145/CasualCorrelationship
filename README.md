@@ -44,6 +44,11 @@ Each data set was givin a unique "id" under "yAxes" in the options field. This m
 
 
 To implement loading icon and the ability to switch graphy styles without reloading the page, Z-indexing was used to hide and show items. When user clicks "Bar Graph", the line graph canvas z-index is set to -1 and the bar bar graph z-index is set to +1. 
+
+
 ![alt text](https://github.com/ankitspatel1145/CasualCorrelationship/blob/master/assets/loadingCode.png "Z-index code")
+
+## To-do:
+* add more APIs to get more variation in data sets.
 
 
