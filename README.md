@@ -38,4 +38,6 @@ Javascript for frontend Chart.js for graphs and various APIs for data
 ### Chart.js
 Once the proper data was compiled, it was fed into Chart.js.
 Using the Chart.js chart type field, the display type of the graph can be easily changed form "bar" to "line"
+![alt text](https://github.com/ankitspatel1145/CasualCorrelationship/blob/master/assets/linechart.png "Line chart code")
+
 
