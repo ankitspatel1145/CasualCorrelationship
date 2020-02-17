@@ -26,6 +26,10 @@ const getAllData = async()=> {
   let dataSet1 = await buildExchangeData()
   let dataSet2 = await buildPopData()
   
+  while ((dataSet1["data"][0]) == null){
+    dataSet1 = await buildExchangeData()
+  }
+
   buildLineChart(dataSet1, dataSet2)
   buildBarChart(dataSet1, dataSet2)
 }
@@ -226,8 +230,9 @@ const exchangeAPI = async(i, output, money) => {
       output.push(val[0])
     })
     .catch(err => {
-    location.reload();
-      // output.push(0)
+    // location.reload();
+      output.push(null)
+    // clearCanvas()
     console.log("error:", err);
     });
 };
