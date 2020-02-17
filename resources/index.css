@@ -57,7 +57,7 @@ table {
     border-radius: 20px;
     opacity: 60%;
     margin-bottom: 20px;
-    width: 100%;
+    width: 80%;
     margin-top: 10px;
     align-items: center;
     min-width: 1000px;
@@ -77,17 +77,11 @@ table {
     z-index: 100;
 }
 .shade{
-    /* display: none; */
     background-color: #36183293;
-    /* display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center; */
     position: absolute;
     width: 100vw;
     height: 100%;
     z-index: 100;
-    /* border: 1px solid red; */
 }
 body {
     display: flex;
@@ -224,7 +218,6 @@ a.button2:hover{
     align-items: center;
     text-align: center;
     color: #86377b;
-    /* background-color: red; */
     font-size: 18px;
     height: 80%;
     width: 50%;
@@ -280,7 +273,6 @@ button:hover {
     width: 100%;
     overflow: hidden;
     height: 100%;
-    /* bottom: -1px; */
     background-image: linear-gradient(to top, #86377b 20%, #27273c 80%);
 }
 .bgTop {
@@ -334,21 +326,15 @@ button:hover {
     width: 60%;
     height: 750px;
     background-color: rgb(255, 255, 255);
-    /* opacity: 50%; */
     position: absolute;
     border-radius: 10px;
     z-index: 100;
-    box-shadow: green;
-    margin-top: 35px;
+    margin-top: 25px;
     display: none;
-    /* border: 1px solid #bd37ab ; */
-    /* box-shadow:10px, 10px, 10px, 10px rgb(0, 0, 0); */
     min-width: 500px;
     max-width: 1000px;
 }
-.dark{
-    
-}
+
 .close {
   position: absolute;
   right: 32px;
@@ -385,15 +371,24 @@ button:hover {
     align-items: center;
     padding: 60px;
     text-align: center;
+    /* overflow: auto; */
+
 }
 .moreinfo p {
     margin: 10px;
 }
 .ankit {
-    margin-top: 100px;
+    /* margin-top: 100px; */
     width: 100%;
 }
+.ankit p {
+    margin-top: 50px;
+}
 .links {
-    display: inline-flex;
+    display: flex;
+    
     width: 100%;
+}
+.modalimg{
+    width:200px;
 }
