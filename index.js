@@ -1,5 +1,12 @@
 window.onload = function() {
+  
   getAllData()
+  openModal()
+
+}
+const startLoading = () => {
+  let loading = document.getElementById("loading")
+  loading.style.zIndex = '10'
 }
 const stopLoading = () => {
   let loading = document.getElementById("loading")
@@ -13,6 +20,7 @@ const changeChart = (chartToHide, chartToShow) => {
 
 }
 const getAllData = async()=> {
+  startLoading();
   let dataSet1 = await buildExchangeData()
   let dataSet2 = await buildPopData()
   
@@ -297,5 +305,7 @@ const openModal = () => {
 }
 const closeModal = () => {
   let button = document.getElementById("modal")
+  let shade = document.getElementById("shade")
   button.style.display = "none"
+  shade.style.display = "none"
 }
