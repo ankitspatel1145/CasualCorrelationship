@@ -31,4 +31,11 @@ The site will be a simple 1 page layout with a nav bar on top that controls the 
 
 ## Technology
 Javascript for frontend Chart.js for graphs and various APIs for data
+### APIs
+* Currency conversion rates were obtained from: https://api.exchangeratesapi.io 
+* Population data was obtained from: https://datausa.io/api/
+
+### Chart.js
+Once the proper data was compiled, it was fed into Chart.js.
+Using the Chart.js chart type field, the display type of the graph can be easily changed form "bar" to "line"
 
