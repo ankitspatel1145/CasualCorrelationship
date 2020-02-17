@@ -38,6 +38,8 @@ Javascript for frontend Chart.js for graphs and various APIs for data
 ### Chart.js
 Once the proper data was compiled, it was fed into Chart.js.
 Using the Chart.js chart type field, the display type of the graph can be easily changed form "bar" to "line"
+
+Each data set was givin a unique "id" under "yAxes" in the options field. This made it possible to display two differnt y-axes on either side of the graph to represent the data sets.
 ![alt text](https://github.com/ankitspatel1145/CasualCorrelationship/blob/master/assets/linechart.png "Line chart code")
 
 
