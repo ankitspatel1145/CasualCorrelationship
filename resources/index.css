@@ -211,7 +211,9 @@ a.button2:hover{
     height: 100%;
     align-items: center;
 }
-
+.logolink:hover{
+    cursor: pointer;
+}
 .info{
     display: flex;
     justify-content: center;
