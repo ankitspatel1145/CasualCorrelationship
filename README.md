@@ -40,13 +40,78 @@ Once the proper data was compiled, it was fed into Chart.js.
 Using the Chart.js chart type field, the display type of the graph can be easily changed form "bar" to "line"
 
 Each data set was givin a unique "id" under "yAxes" in the options field. This made it possible to display two differnt y-axes on either side of the graph to represent the data sets.
-![alt text](https://github.com/ankitspatel1145/CasualCorrelationship/blob/master/assets/linechart.png "Line chart code")
+
+```javascript
+  var ctx = document.getElementById("barChart").getContext("2d");
+  var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ["2016", "2017", "2018", "2019", "2020"],
+      datasets: [
+        {
+          yAxisID: 'A',
+          label: dataSet1.title,
+          data: dataSet1.data,
+          backgroundColor: "rgba(255, 99, 132, 0.2)",
+          borderColor: "rgba(255, 99, 132, 1)",
+          borderWidth: 1,
+          pointBackgroundColor: "rgba(255, 99, 132, 0.5)"
+        },
+        {
+          yAxisID: 'B',
+          label:` ${dataSet2.state} population`,
+          data: dataSet2.data,
+          backgroundColor: "rgba(54, 162, 235, 0.2)",
+          borderColor: "rgba(54, 162, 235, 1)",
+          borderWidth: 1,
+          pointBackgroundColor: "rgba(54, 162, 235, .5000000)"
+        }
+      ]
+    },
+    options: {
+      scales: {
+        yAxes: [{
+          id: 'A',
+          type: 'linear',
+          position: 'left', 
+          scaleLabel: {
+            display: true,
+            labelString: `1 ${dataSet1.title} `
+          }
+        }, {
+          id: 'B',
+          type: 'linear',
+          position: 'right',
+          scaleLabel: {
+            display: true,
+            labelString: `Population of ${dataSet2.state}`
+          }
+        }]
+      }
+    }
+  });
+```
 
 
 To implement loading icon and the ability to switch graphy styles without reloading the page, Z-indexing was used to hide and show items. When user clicks "Bar Graph", the line graph canvas z-index is set to -1 and the bar bar graph z-index is set to +1. 
 
 
-![alt text](https://github.com/ankitspatel1145/CasualCorrelationship/blob/master/assets/loadingCode.png "Z-index code")
+```javascript
+const startLoading = () => {
+  let loading = document.getElementById("loading")
+  loading.style.zIndex = '2'
+}
+const stopLoading = () => {
+  let loading = document.getElementById("loading")
+  loading.style.zIndex = '-1'
+}
+const changeChart = (chartToHide, chartToShow) => {
+  var hide = document.getElementById(chartToHide);
+  var show = document.getElementById(chartToShow);
+  hide.style.zIndex = '-1';
+  show.style.zIndex = '1';
+}
+```
 
 ## To-do:
 * add more APIs to get more variation in data sets.
