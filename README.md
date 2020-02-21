@@ -115,5 +115,5 @@ const changeChart = (chartToHide, chartToShow) => {
 
 ## To-do:
 * add more APIs to get more variation in data sets.
-
+* implement randomization function with more APIs
 
