@@ -58,7 +58,6 @@ const buildExchangeData = async () => {
 function buildLineChart(dataSet1, dataSet2) {
   stopLoading()
   var ctx = document.getElementById("lineChart").getContext("2d");
-
   var myChart = new Chart(ctx, {
     type: 'line',
     data: {
