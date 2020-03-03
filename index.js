@@ -48,8 +48,9 @@ const buildExchangeData = async () => {
     await exchangeAPI(i, data, money)
     i = i + 1
   }
-  output = {data,
-            title: `EUR to ${money} exchange rate`
+  output = {
+    data,
+    title: `EUR to ${money} exchange rate`
   }
   return output
 }
