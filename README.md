@@ -3,6 +3,16 @@
 ## Live Site 
 [Casual Correlationships](https://ankitspatel1145.github.io/CasualCorrelationship/ "Casual Correlationships")
 
+## Technical Specs
+
+* Vanilla JavaScript
+
+* CSS
+
+* HTML
+
+* Chart.js
+
 
 
 ## Background
