@@ -220,11 +220,12 @@ const exchangeAPI = async(i, output, money) => {
   let month = today.getMonth();
   let year = today.getFullYear();
   
-  let newDate = year - i + "-" + month + "-" + (date - 1);
+  let newDate = year - i + "-" +( month + 1) + "-" + (date - 1);
   let url = `https://api.exchangeratesapi.io/${newDate}?symbols=${money}`
   return fetch(url)
     .then(response => response.json())
     .then(data => {
+      console.log(data.rates)
       let val = Object.values(data.rates)
       output.push(val[0])
     })
